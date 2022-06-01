@@ -1,5 +1,5 @@
-u1 = User.create(email: 'admin@mail.com', password: 'testing123', role: 1)
-u2 = User.create(email: 'user@mail.com', password: 'testing123', role: 2)
+u1 = User.create(email: 'admin@mail.com', password: 'testing123', role: :admin)
+u2 = User.create(email: 'user@mail.com', password: 'testing123', role: :user)
 
 
 q = Quiz.create(title: "quiz one testing", user_id: u1.id)

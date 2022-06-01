@@ -1,15 +1,14 @@
 class Quiz < ApplicationRecord
   validates :title, presence: true
+  validate :created_by_admin
 
   belongs_to :user
-  has_many :questions
-  has_many :answers
-
-  before_create :is_admin
+  has_many :questions, dependent: :destroy
+  has_many :answers, dependent: :destroy
 
   private
 
-  def is_admin
-    raise "You are not authorized" unless user.admin?
+  def created_by_admin
+    errors.add :user_id, "You are not authorized" if user.nil? || !user.admin?
   end
 end

@@ -4,8 +4,8 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  has_many :quizzes
-  has_many :answers
+  has_many :quizzes, dependent: :destroy
+  has_many :answers, dependent: :destroy
 
   enum role: {
     admin: 1,
