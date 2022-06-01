@@ -1,5 +1,6 @@
 **Scripts**
 
+There is no UI except login, signup. You can test the application using following scripts.
 ```
 u1 = User.create(email: 'admin@mail.com', password: 'testing123', role: 1)
 u2 = User.create(email: 'user@mail.com', password: 'testing123', role: 2)
